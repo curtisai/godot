@@ -11,8 +11,13 @@ config_version=4
 [application]
 
 config/name="coin-dash"
-run/main_scene="res://Player.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=480
+window/size/height=720
 
 [gui]
 

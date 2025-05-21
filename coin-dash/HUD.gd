@@ -40,6 +40,10 @@ func _on_StartButton_pressed():
 
 func show_game_over():
 	show_message("Game Over")
+	# yield function pauses execution of the function util
+	# the given node (MessageTimer) emits a given signal (timeout).
+	# Once the signal is received, the function continues,
+	# returning you to the initial state so that you can play again
 	yield($MessageTimer, "timeout")
 	$StartButton.show()
 	$MessageLabel.text = "Coin Dash!"

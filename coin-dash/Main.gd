@@ -4,6 +4,7 @@ extends Node
 # to the script. For example, $Node1/Node2 would refer to
 # a node (Node2) that is the child of Node1
 export (PackedScene) var Coin
+export (PackedScene) var Powerup
 export (int) var playtime
 
 var level
@@ -17,6 +18,7 @@ func new_game():
 	level = 1
 	score = 0
 	time_left = playtime
+	# Ensure the Player moves to the proper starting location.
 	$Player.start($PlayerStart.position)
 	$Player.show()
 	$GameTimer.start()
@@ -27,18 +29,27 @@ func new_game():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	# You must use randomize() if you want your sequence of "random" numbers 
+	# to be different every time you run the scene. Technically speaking, 
+	# this selects a random seed for the random number.
 	screensize = get_viewport().get_visible_rect().size
 	$Player.screensize = screensize
 	$Player.hide()
 
 
 func spawn_coins():
+	$PowerupTimer.wait_time = rand_range(5, 10)
+	$PowerupTimer.start()
+	$LevelSound.play()
 	for i in range(4 + level):
 		var c = Coin.instance()
 		$CoinContainer.add_child(c)
 		c.screensize = screensize
-		c.position = Vector2(rand_range(0, screensize.x),
-		rand_range(0, screensize.y))
+		c.position = Vector2(
+			rand_range(0, screensize.x),
+			rand_range(0, screensize.y)
+			)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if playing and $CoinContainer.get_child_count() == 0:
@@ -53,6 +64,7 @@ func _on_GameTimer_timeout():
 		game_over()
 
 func game_over():
+	$EndSound.play()
 	playing = false
 	$GameTimer.stop()
 	for coin in $CoinContainer.get_children():
@@ -65,6 +77,20 @@ func _on_Player_hurt():
 	game_over()
 
 
-func _on_Player_pickup():
-	score += 1
-	$HUD.update_score(score)
+func _on_Player_pickup(type):
+	match type:
+		"coin":
+			score += 1
+			$CoinSound.play()
+			$HUD.update_score(score)
+		"powerup":
+			time_left += 5
+			$PowerupSound.play()
+			$HUD.update_timer(time_left)
+
+
+func _on_PowerupTimer_timeout():
+	var p = Powerup.instance()
+	add_child(p)
+	p.screensize=screensize
+	p.position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))

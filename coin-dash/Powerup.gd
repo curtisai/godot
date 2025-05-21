@@ -5,11 +5,8 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer.wait_time = rand_range(5, 8)
-	$Timer.start()
 	$Tween.interpolate_property($AnimatedSprite, 'scale',
 	$AnimatedSprite.scale,
 	$AnimatedSprite.scale * 3.03,
@@ -44,10 +41,10 @@ func _on_Tween_tween_completed(object, key):
 	queue_free()
 
 
-func _on_Coin_area_entered(area):
+func _on_PoweUp_area_entered(area):
 	pass # Replace with function body.
 
 
-func _on_Timer_timeout():
-	$AnimatedSprite.frame = 0
-	$AnimatedSprite.play()
+
+func _on_Lifetime_timeout():
+	queue_free()

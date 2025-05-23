@@ -42,7 +42,8 @@ func _on_Tween_tween_completed(object, key):
 
 
 func _on_PoweUp_area_entered(area):
-	pass # Replace with function body.
+	if area.is_in_group("obstacle"):
+		position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))
 
 
 

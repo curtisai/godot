@@ -1,41 +1,70 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene format=3 uid="uid://b5urh670x5tbn"]
 
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-7.png" type="Texture2D" id=1]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-5.png" type="Texture2D" id=2]
-[ext_resource path="res://Powerup.gd" type="Script" id=3]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-3.png" type="Texture2D" id=4]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-8.png" type="Texture2D" id=5]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-1.png" type="Texture2D" id=6]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-4.png" type="Texture2D" id=7]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-2.png" type="Texture2D" id=8]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-9.png" type="Texture2D" id=9]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-6.png" type="Texture2D" id=10]
-[ext_resource path="res://coin-dash/assets/powerup/pow-frame-10.png" type="Texture2D" id=11]
+[ext_resource type="Texture2D" uid="uid://c02gd1sxftnca" path="res://coin-dash/assets/powerup/pow-frame-7.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d1q8j8quxkof4" path="res://coin-dash/assets/powerup/pow-frame-5.png" id="2"]
+[ext_resource type="Script" uid="uid://djaskhhs35pf8" path="res://Powerup.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://db6nn0esw4nn4" path="res://coin-dash/assets/powerup/pow-frame-3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://br5k3etu1ddjd" path="res://coin-dash/assets/powerup/pow-frame-8.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://m5yt6ifggh62" path="res://coin-dash/assets/powerup/pow-frame-1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://c1nrt7ah1mg3t" path="res://coin-dash/assets/powerup/pow-frame-4.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bcpam7d2uc50" path="res://coin-dash/assets/powerup/pow-frame-2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://cgxuytca2khuq" path="res://coin-dash/assets/powerup/pow-frame-9.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://bepm31f0e7t8l" path="res://coin-dash/assets/powerup/pow-frame-6.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://exemu4ypdhtf" path="res://coin-dash/assets/powerup/pow-frame-10.png" id="11"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 11 ) ],
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}],
 "loop": true,
-"name": "shine",
+"name": &"shine",
 "speed": 12.0
-} ]
+}]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id="2"]
 radius = 24.0832
 
-[node name="PoweUp" type="Area2D" groups=["powerup"]]
-script = ExtResource( 3 )
+[node name="PoweUp" type="Area2D" unique_id=1930621020 groups=["powerup"]]
+script = ExtResource("3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
-animation = "shine"
-playing = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2090095444]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("1")
+animation = &"shine"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=646953977 groups=["powerup"]]
+shape = SubResource("2")
 
-[node name="Lifetime" type="Timer" parent="."]
+[node name="Lifetime" type="Timer" parent="." unique_id=373810268]
 wait_time = 2.0
 one_shot = true
 autostart = true

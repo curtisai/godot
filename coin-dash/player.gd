@@ -43,9 +43,9 @@ func get_input():
 		velocity = velocity.normalized() * speed
 
 func start(pos):
-	set_process(true)
 	position = pos
 	$AnimatedSprite2D.animation = "idle"
+	set_process(true)
 
 func die():
 	$AnimatedSprite2D.animation = "hurt"

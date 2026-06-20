@@ -1,128 +1,121 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene format=3 uid="uid://bxplgoe62ooxj"]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://coin-dash/assets/grass.png" type="Texture" id=2]
-[ext_resource path="res://Main.gd" type="Script" id=3]
-[ext_resource path="res://Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://coin-dash/assets/Kenney Bold.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://HUD.gd" type="Script" id=6]
-[ext_resource path="res://coin-dash/assets/sound/Coin.wav" type="AudioStream" id=7]
-[ext_resource path="res://coin-dash/assets/sound/Hit.wav" type="AudioStream" id=8]
-[ext_resource path="res://coin-dash/assets/sound/Level.wav" type="AudioStream" id=9]
-[ext_resource path="res://coin-dash/assets/sound/Powerup.wav" type="AudioStream" id=10]
-[ext_resource path="res://Powerup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://obstacle.tscn" type="PackedScene" id=12]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://hpbfjr3evn1h" path="res://coin-dash/assets/grass.png" id="2"]
+[ext_resource type="Script" uid="uid://q7x5mftkpshr" path="res://Main.gd" id="3"]
+[ext_resource type="PackedScene" path="res://Coin.tscn" id="4"]
+[ext_resource type="FontFile" uid="uid://dms251r7pktxd" path="res://coin-dash/assets/Kenney Bold.ttf" id="5"]
+[ext_resource type="Script" uid="uid://brmtanpxwgej7" path="res://HUD.gd" id="6"]
+[ext_resource type="AudioStream" uid="uid://bgqmyw8yiwny1" path="res://coin-dash/assets/sound/Coin.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://dug7alsl5wes" path="res://coin-dash/assets/sound/Hit.wav" id="8"]
+[ext_resource type="AudioStream" uid="uid://b38nc854vdlou" path="res://coin-dash/assets/sound/Level.wav" id="9"]
+[ext_resource type="AudioStream" uid="uid://c0p4ysitjmmnm" path="res://coin-dash/assets/sound/Powerup.wav" id="10"]
+[ext_resource type="PackedScene" path="res://Powerup.tscn" id="11"]
+[ext_resource type="PackedScene" path="res://obstacle.tscn" id="12"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 48
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 5 )
-
-[node name="Main" type="Node"]
-script = ExtResource( 3 )
-Coin = ExtResource( 4 )
-Powerup = ExtResource( 11 )
+[node name="Main" type="Node" unique_id=246877086]
+script = ExtResource("3")
+Coin = ExtResource("4")
+Powerup = ExtResource("11")
 playtime = 30
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=796308330]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="Player" parent="." unique_id=92658073 instance=ExtResource("1")]
 
-[node name="PlayerStart" type="Position2D" parent="."]
-position = Vector2( 240, 350 )
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=797554609]
+position = Vector2(240, 350)
 
-[node name="GameTimer" type="Timer" parent="."]
+[node name="GameTimer" type="Timer" parent="." unique_id=2091575748]
 
-[node name="CoinContainer" type="Node" parent="."]
+[node name="CoinContainer" type="Node" parent="." unique_id=487641084]
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( 6 )
+[node name="HUD" type="CanvasLayer" parent="." unique_id=293228367]
+script = ExtResource("6")
 
-[node name="MessageLabel" type="Label" parent="HUD"]
+[node name="MessageLabel" type="Label" parent="HUD" unique_id=1043525640]
+anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -186.0
-margin_right = 186.0
-custom_fonts/font = SubResource( 1 )
+offset_left = -186.0
+offset_right = 186.0
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 48
 text = "Coin Dash"
-align = 2
-valign = 1
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1107157478]
+anchors_preset = 10
 anchor_right = 1.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 
-[node name="ScoreLabel" type="Label" parent="HUD/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 470.0
-margin_bottom = 82.0
-custom_fonts/font = SubResource( 1 )
+[node name="ScoreLabel" type="Label" parent="HUD/MarginContainer" unique_id=1900396179]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 48
 text = "0"
-valign = 1
+vertical_alignment = 1
 
-[node name="TimeLabel" type="Label" parent="HUD/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 470.0
-margin_bottom = 82.0
-custom_fonts/font = SubResource( 1 )
+[node name="TimeLabel" type="Label" parent="HUD/MarginContainer" unique_id=311058197]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 48
 text = "0"
-align = 2
-valign = 1
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="MessageTimer" type="Timer" parent="HUD"]
+[node name="MessageTimer" type="Timer" parent="HUD" unique_id=1693397808]
 wait_time = 2.0
 one_shot = true
 
-[node name="StartButton" type="Button" parent="HUD"]
+[node name="StartButton" type="Button" parent="HUD" unique_id=1940987019]
 light_mask = 0
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -502.0
-margin_top = -100.0
-margin_right = 502.0
-custom_fonts/font = SubResource( 2 )
-shortcut_in_tooltip = false
+offset_left = -502.0
+offset_top = -100.0
+offset_right = 502.0
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 48
 text = "Start"
 flat = true
 
-[node name="CoinSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=764321822]
+stream = ExtResource("7")
 
-[node name="LevelSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+[node name="LevelSound" type="AudioStreamPlayer" parent="." unique_id=896515527]
+stream = ExtResource("9")
 
-[node name="EndSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+[node name="EndSound" type="AudioStreamPlayer" parent="." unique_id=952610405]
+stream = ExtResource("8")
 
-[node name="PowerupTimer" type="Timer" parent="."]
+[node name="PowerupTimer" type="Timer" parent="." unique_id=3418987]
 one_shot = true
 
-[node name="PowerupSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+[node name="PowerupSound" type="AudioStreamPlayer" parent="." unique_id=152298966]
+stream = ExtResource("10")
 
-[node name="Obstacle" parent="." instance=ExtResource( 12 )]
-position = Vector2( 222, 243 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Obstacle" parent="." unique_id=1472159465 instance=ExtResource("12")]
+position = Vector2(222, 243)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
 [connection signal="pickup" from="Player" to="." method="_on_Player_pickup"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="timeout" from="HUD/MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="timeout" from="HUD/MessageTimer" to="HUD" method="_on_MessageTimer_timeout"]
 [connection signal="pressed" from="HUD/StartButton" to="HUD" method="_on_StartButton_pressed"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]

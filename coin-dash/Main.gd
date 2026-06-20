@@ -3,9 +3,9 @@ extends Node
 # In the $ notation, the node name is relative to the node running
 # to the script. For example, $Node1/Node2 would refer to
 # a node (Node2) that is the child of Node1
-export (PackedScene) var Coin
-export (PackedScene) var Powerup
-export (int) var playtime
+@export var Coin: PackedScene
+@export var Powerup: PackedScene
+@export var playtime: int
 
 var level
 var score
@@ -38,16 +38,16 @@ func _ready():
 
 
 func spawn_coins():
-	$PowerupTimer.wait_time = rand_range(5, 10)
+	$PowerupTimer.wait_time = randf_range(5, 10)
 	$PowerupTimer.start()
 	$LevelSound.play()
 	for i in range(4 + level):
-		var c = Coin.instance()
+		var c = Coin.instantiate()
 		$CoinContainer.add_child(c)
 		c.screensize = screensize
 		c.position = Vector2(
-			rand_range(0, screensize.x),
-			rand_range(0, screensize.y)
+			randf_range(0, screensize.x),
+			randf_range(0, screensize.y)
 			)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -90,7 +90,7 @@ func _on_Player_pickup(type):
 
 
 func _on_PowerupTimer_timeout():
-	var p = Powerup.instance()
+	var p = Powerup.instantiate()
 	add_child(p)
 	p.screensize=screensize
-	p.position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))
+	p.position = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Level.wav-82fe74b00a6dd20a0fd78a27eb00f144.sample"
+type="AudioStreamWAV"
+uid="uid://b38nc854vdlou"
+path="res://.godot/imported/Level.wav-82fe74b00a6dd20a0fd78a27eb00f144.sample"
 
 [deps]
 
 source_file="res://coin-dash/assets/sound/Level.wav"
-dest_files=[ "res://.import/Level.wav-82fe74b00a6dd20a0fd78a27eb00f144.sample" ]
+dest_files=["res://.godot/imported/Level.wav-82fe74b00a6dd20a0fd78a27eb00f144.sample"]
 
 [params]
 

@@ -36,7 +36,7 @@ func _on_MessageTimer_timeout():
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	$MessageLabel.hide()
-	emit_signal("start_game")
+	start_game.emit()
 
 func show_game_over():
 	show_message("Game Over")
@@ -44,7 +44,7 @@ func show_game_over():
 	# the given node (MessageTimer) emits a given signal (timeout).
 	# Once the signal is received, the function continues,
 	# returning you to the initial state so that you can play again
-	yield($MessageTimer, "timeout")
+	await $MessageTimer.timeout
 	$StartButton.show()
 	$MessageLabel.text = "Coin Dash!"
 	$MessageLabel.show()

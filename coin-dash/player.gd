@@ -7,7 +7,7 @@ signal hurt
 # var a = 2
 # var b = "text"
 
-export (int) var speed
+@export var speed: int
 var velocity = Vector2()
 var screensize = Vector2(480, 720)
 
@@ -24,10 +24,10 @@ func _process(delta):
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screensize.y)
 	if velocity.length() > 0:
-		$AnimatedSprite.animation = "run"
-		$AnimatedSprite.flip_h = velocity.x <= 0
+		$AnimatedSprite2D.animation = "run"
+		$AnimatedSprite2D.flip_h = velocity.x <= 0
 	else:
-		$AnimatedSprite.animation = "idle"
+		$AnimatedSprite2D.animation = "idle"
 
 func get_input():
 	velocity = Vector2()
@@ -45,20 +45,20 @@ func get_input():
 func start(pos):
 	set_process(true)
 	position = pos
-	$AnimatedSprite.animation = "idle"
+	$AnimatedSprite2D.animation = "idle"
 
 func die():
-	$AnimatedSprite.animation = "hurt"
+	$AnimatedSprite2D.animation = "hurt"
 	set_process(false)
 
 
 func _on_Player_area_entered(area):
 	if area.is_in_group("coins"):
 		area.pickup()
-		emit_signal("pickup", "coin")
+		pickup.emit("coin")
 	if area.is_in_group("powerup"):
 		area.pickup()
-		emit_signal("pickup", "powerup")
+		pickup.emit("powerup")
 	if area.is_in_group("obstacle"):
-		emit_signal("hurt")
+		hurt.emit()
 		die()

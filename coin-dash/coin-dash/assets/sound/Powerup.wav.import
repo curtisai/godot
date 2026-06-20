@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Powerup.wav-7ba116a00cc660c1620a49ad9cf450c8.sample"
+type="AudioStreamWAV"
+uid="uid://c0p4ysitjmmnm"
+path="res://.godot/imported/Powerup.wav-7ba116a00cc660c1620a49ad9cf450c8.sample"
 
 [deps]
 
 source_file="res://coin-dash/assets/sound/Powerup.wav"
-dest_files=[ "res://.import/Powerup.wav-7ba116a00cc660c1620a49ad9cf450c8.sample" ]
+dest_files=["res://.godot/imported/Powerup.wav-7ba116a00cc660c1620a49ad9cf450c8.sample"]
 
 [params]
 

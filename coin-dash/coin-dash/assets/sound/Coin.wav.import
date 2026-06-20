@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Coin.wav-703b2a8bbfc85548fec91740e266779a.sample"
+type="AudioStreamWAV"
+uid="uid://bgqmyw8yiwny1"
+path="res://.godot/imported/Coin.wav-703b2a8bbfc85548fec91740e266779a.sample"
 
 [deps]
 
 source_file="res://coin-dash/assets/sound/Coin.wav"
-dest_files=[ "res://.import/Coin.wav-703b2a8bbfc85548fec91740e266779a.sample" ]
+dest_files=["res://.godot/imported/Coin.wav-703b2a8bbfc85548fec91740e266779a.sample"]
 
 [params]
 

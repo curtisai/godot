@@ -1,54 +1,87 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=16 format=3 uid="uid://dynnpdb4ciu2e"]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://coin-dash/assets/player/run/player-run-3.png" type="Texture" id=2]
-[ext_resource path="res://coin-dash/assets/player/run/player-run-1.png" type="Texture" id=3]
-[ext_resource path="res://coin-dash/assets/player/idle/player-idle-3.png" type="Texture" id=4]
-[ext_resource path="res://coin-dash/assets/player/run/player-run-4.png" type="Texture" id=5]
-[ext_resource path="res://coin-dash/assets/player/hurt/player-hurt-2.png" type="Texture" id=6]
-[ext_resource path="res://coin-dash/assets/player/idle/player-idle-4.png" type="Texture" id=7]
-[ext_resource path="res://coin-dash/assets/player/run/player-run-6.png" type="Texture" id=8]
-[ext_resource path="res://coin-dash/assets/player/idle/player-idle-2.png" type="Texture" id=9]
-[ext_resource path="res://coin-dash/assets/player/run/player-run-5.png" type="Texture" id=10]
-[ext_resource path="res://coin-dash/assets/player/idle/player-idle-1.png" type="Texture" id=11]
-[ext_resource path="res://coin-dash/assets/player/run/player-run-2.png" type="Texture" id=12]
-[ext_resource path="res://coin-dash/assets/player/hurt/player-hurt-1.png" type="Texture" id=13]
+[ext_resource type="Script" uid="uid://bebhv1ta5sppm" path="res://Player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cv1pwvgigsamh" path="res://coin-dash/assets/player/hurt/player-hurt-1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://u5mld3cjasw8" path="res://coin-dash/assets/player/hurt/player-hurt-2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cq0jfeq5ncnsg" path="res://coin-dash/assets/player/idle/player-idle-1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bulvw5eeq1can" path="res://coin-dash/assets/player/idle/player-idle-2.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dlphgnmsx0bv6" path="res://coin-dash/assets/player/idle/player-idle-3.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://uabjpiox40q0" path="res://coin-dash/assets/player/idle/player-idle-4.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://ds3f7xrabb4i6" path="res://coin-dash/assets/player/run/player-run-1.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://btxp0x5bd13lf" path="res://coin-dash/assets/player/run/player-run-2.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://c2rjbvs4drdny" path="res://coin-dash/assets/player/run/player-run-3.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://cd533tywa6faw" path="res://coin-dash/assets/player/run/player-run-4.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://cdxjic5oe5lwb" path="res://coin-dash/assets/player/run/player-run-5.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://mjqlg1wig7uf" path="res://coin-dash/assets/player/run/player-run-6.png" id="13"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 6 ) ],
+[sub_resource type="SpriteFrames" id="SpriteFrames_player"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
 "loop": true,
-"name": "hurt",
+"name": &"hurt",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
 "loop": true,
-"name": "idle",
+"name": &"idle",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
 "loop": true,
-"name": "run",
+"name": &"run",
 "speed": 8.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9, 11.5 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(18, 23)
 
 [node name="Player" type="Area2D"]
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource("1")
 speed = 350
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "run"
-playing = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_player")
+animation = &"run"
+autoplay = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.36422e-12, 4.5 )
-shape = SubResource( 2 )
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_player")
 
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]

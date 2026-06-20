@@ -7,15 +7,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Tween.interpolate_property($AnimatedSprite, 'scale',
-	$AnimatedSprite.scale,
-	$AnimatedSprite.scale * 3.03,
-	Tween.TRANS_QUAD,
-	Tween.EASE_IN_OUT)
-	$Tween.interpolate_property($AnimatedSprite, "modulate",
-	Color(1,1,1,1),
-	Color(1,1,1,0), 0.3,
-	Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	pass
 
 
 var screensize = Vector2()
@@ -29,21 +21,23 @@ func pickup():
 # to a queue to be deleted at the end of the current frame.
 	monitoring = false
 	# Setting monitoring to false ensures that the area_enter() signal won't be emitted
-	# if the player touches the coin during the tween animation 
-	$Tween.start()
+	# if the player touches the coin during the tween animation
+	var sprite = $AnimatedSprite2D
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(sprite, "scale", sprite.scale * 3.03, 0.3)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(sprite, "modulate", Color(1, 1, 1, 0), 0.3)\
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween.finished.connect(queue_free)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 
-func _on_Tween_tween_completed(object, key):
-	queue_free()
-
-
 func _on_PoweUp_area_entered(area):
 	if area.is_in_group("obstacle"):
-		position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))
+		position = Vector2(randf_range(0, screensize.x), randf_range(0, screensize.y))
 
 
 

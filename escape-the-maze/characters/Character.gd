@@ -44,6 +44,8 @@ var moves = {
 }
 
 func move(dir):
+	if not can_move:
+		return
 	$AnimationPlayer.playback_speed = speed
 	facing = dir
 	if raycasts[facing].is_colliding():
@@ -51,10 +53,11 @@ func move(dir):
 		return
 	can_move = false
 	$AnimationPlayer.play(facing)
-	$MoveTween.interpolate_property(self,
-	position,position + moves[facing]*tile_size,
-	1.0/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	$MoveTween.start()
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "position", position + moves[facing] * tile_size, 1.0 / speed)
+	tween.finished.connect(func(): can_move = true)
 	return true
 
 

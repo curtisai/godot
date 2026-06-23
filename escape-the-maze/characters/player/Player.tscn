@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bxaefg2dquic7"]
+
+[ext_resource type="PackedScene" uid="uid://b56bb5s0xd3m6" path="res://characters/Character.tscn" id="1_jr8aq"]
+[ext_resource type="Texture2D" uid="uid://71f01baudfut" path="res://assets/player.png" id="2_4oy4f"]
+[ext_resource type="Script" uid="uid://cmanep0so8iho" path="res://characters/player/player.gd" id="2_ibj0t"]
+
+[node name="Player" unique_id=2123097091 instance=ExtResource("1_jr8aq")]
+collision_layer = 13
+script = ExtResource("2_ibj0t")
+
+[node name="Sprite2D" parent="." index="0" unique_id=676693542]
+texture = ExtResource("2_4oy4f")
+
+[node name="Camera" type="Camera2D" parent="." index="7" unique_id=579864582]
+enabled = true
+limit_enabled = false

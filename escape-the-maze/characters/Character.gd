@@ -46,7 +46,7 @@ var moves = {
 func move(dir):
 	if not can_move:
 		return
-	$AnimationPlayer.playback_speed = speed
+	$AnimationPlayer.speed_scale = float(speed)
 	facing = dir
 	if raycasts[facing].is_colliding():
 		# the return value will be null

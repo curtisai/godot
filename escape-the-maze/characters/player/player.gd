@@ -2,6 +2,9 @@ extends "res://characters/Character.gd"
 
 signal moved
 
+signal dead
+signal grabbed_key
+signal win
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,3 +66,14 @@ func _process(delta: float) -> void:
 #   background color) because nothing is drawn there — limits do not create
 #   tiles, they only stop the camera from scrolling. Use limits on the final
 #   maze scene to hide that void at map edges.
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group('enemies'):
+		emit_signal('dead')
+	if area.has_method('pickup'):
+		area.pickup()
+	if area.type=='key_red':
+		emit_signal('grabbed_key')
+	if area.type=='star':
+		emit_signal('win')

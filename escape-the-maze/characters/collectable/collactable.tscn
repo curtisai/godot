@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dvbsj5nti08ek"]
+
+[ext_resource type="Script" uid="uid://bucsioant3ibn" path="res://characters/collectable/collactable.gd" id="1_ya7fu"]
+
+[node name="Collactable" type="Area2D" unique_id=2024547808]
+script = ExtResource("1_ya7fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=861191018]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1748769619]

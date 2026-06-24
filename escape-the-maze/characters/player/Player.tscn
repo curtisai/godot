@@ -12,5 +12,6 @@ script = ExtResource("2_ibj0t")
 texture = ExtResource("2_4oy4f")
 
 [node name="Camera" type="Camera2D" parent="." index="7" unique_id=579864582]
-enabled = true
 limit_enabled = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

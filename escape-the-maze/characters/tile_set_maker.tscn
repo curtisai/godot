@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c74ar2i4kefjh"]
+
+[ext_resource type="Texture2D" uid="uid://d0ddjf4tpl8be" path="res://assets/sokoban_tilesheet.png" id="1_2m1l6"]
+
+[node name="TileSetMaker" type="Node2D" unique_id=1697580942]
+
+[node name="CrateBrown" type="Sprite2D" parent="." unique_id=1654095192]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(384, 0, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CrateBrown" unique_id=958036620]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrateBrown/StaticBody2D" unique_id=1032336107]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="CrateRed" type="Sprite2D" parent="." unique_id=1519722919]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(448, 0, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CrateRed" unique_id=1618870298]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrateRed/StaticBody2D" unique_id=649315444]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="CrateBlue" type="Sprite2D" parent="." unique_id=1433321273]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(512, 0, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CrateBlue" unique_id=1235599046]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrateBlue/StaticBody2D" unique_id=941734229]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)

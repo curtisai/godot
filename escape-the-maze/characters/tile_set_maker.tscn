@@ -33,3 +33,63 @@ region_rect = Rect2(512, 0, 64, 64)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrateBlue/StaticBody2D" unique_id=941734229]
 polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="CrateGreen" type="Sprite2D" parent="." unique_id=289942385]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 0, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CrateGreen" unique_id=1512731491]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrateGreen/StaticBody2D" unique_id=1070720960]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="CrateGrey" type="Sprite2D" parent="." unique_id=1283215182]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(640, 0, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CrateGrey" unique_id=400688288]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CrateGrey/StaticBody2D" unique_id=61777220]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="WallRed" type="Sprite2D" parent="." unique_id=898626170]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(384, 448, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallRed" unique_id=1703229296]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallRed/StaticBody2D" unique_id=587406241]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="WallBrick" type="Sprite2D" parent="." unique_id=1873209340]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(448, 448, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBrick" unique_id=1786371678]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallBrick/StaticBody2D" unique_id=86882260]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="WallGrey" type="Sprite2D" parent="." unique_id=1437509668]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(512, 448, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallGrey" unique_id=451842827]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallGrey/StaticBody2D" unique_id=531195872]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="WallBrown" type="Sprite2D" parent="." unique_id=1991657732]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 448, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBrown" unique_id=2047443299]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallBrown/StaticBody2D" unique_id=1951470130]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)

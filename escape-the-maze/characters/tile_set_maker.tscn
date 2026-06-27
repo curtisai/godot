@@ -93,3 +93,58 @@ region_rect = Rect2(576, 448, 64, 64)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallBrown/StaticBody2D" unique_id=1951470130]
 polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="DoorGreen" type="Sprite2D" parent="." unique_id=506280374]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 320, 64, 64)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DoorGreen" unique_id=887986788]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorGreen/StaticBody2D" unique_id=990536007]
+polygon = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[node name="SlimeSpawn" type="Sprite2D" parent="." unique_id=491116558]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(704, 256, 64, 64)
+
+[node name="PlayerSpawn" type="Sprite2D" parent="." unique_id=1648649362]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(704, 128, 64, 64)
+
+[node name="Coin" type="Sprite2D" parent="." unique_id=69194495]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 320, 64, 64)
+
+[node name="Star" type="Sprite2D" parent="." unique_id=1605719184]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 320, 64, 64)
+
+[node name="GroundBrown" type="Sprite2D" parent="." unique_id=1400716518]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(768, 384, 64, 64)
+
+[node name="GroundGrey" type="Sprite2D" parent="." unique_id=1232958681]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(704, 384, 64, 64)
+
+[node name="GroundGreen" type="Sprite2D" parent="." unique_id=1396541494]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(640, 384, 64, 64)
+
+[node name="KeyRed" type="Sprite2D" parent="." unique_id=1743969158]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 320, 64, 64)
+
+[node name="KeyGreen" type="Sprite2D" parent="." unique_id=1280656177]
+texture = ExtResource("1_2m1l6")
+region_enabled = true
+region_rect = Rect2(576, 320, 64, 64)
